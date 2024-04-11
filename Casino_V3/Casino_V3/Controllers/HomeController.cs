@@ -50,8 +50,8 @@ namespace Casino_V3.Controllers
         // GET: /Roulette/Index
         public ActionResult Roulette()
         {
-            //int result = SpinRouletteWheel();
-           // ViewBag.Result = result;
+            int result = SpinRouletteWheel();
+            ViewBag.Result = result;
             return View();
         }
 
