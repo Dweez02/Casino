@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Casino_V3.props" />
+</Project>

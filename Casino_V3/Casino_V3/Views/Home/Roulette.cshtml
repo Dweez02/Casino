@@ -1,0 +1,78 @@
+﻿@{
+    Layout = null; // No layout page
+ // Kode som er skrevet herunder blev skrevet med hjælp fra ChatGPT da vi Chris og Andres ikke kunne finde helt ud af hvordan man skulle sætte en roulette op
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roulette Wheel</title>
+    <style>
+        /* Add your CSS styles for the roulette wheel here */
+        .wheel {
+            width: 300px;
+            height: 300px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            position: relative;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wheel">
+        <div class="number">@ViewBag.Result</div> <!-- Display the result from the controller -->
+    </div>
+    @using (Html.BeginForm("Spin", "Roulette", FormMethod.Post))
+    {
+            <input type="submit" class="btn" value="Spin the Wheel" />
+    }
+
+    <a href="#" onclick="submitForm()">prøv mig</a>
+
+<script>
+  function submitForm() {
+    // Create a form element
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '@Url.Action("Spin")'; // Replace with appropriate URL
+
+    // Add any necessary hidden inputs
+    // For example, if you have any data to send along with the request
+    // you can create hidden inputs and append them to the form
+
+    // Append the form to the body and submit it
+    document.body.appendChild(form);
+    form.submit();
+  }
+</script>
+
+
+    @using (Html.BeginForm("PlaceBet", "Roulette", FormMethod.Post))
+    {
+            <input type="text" name="betNumber" placeholder="Enter a number (0-36)" />
+            <input type="submit" class="btn" value="Place Bet" />
+    }
+</body>
+</html>

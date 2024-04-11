@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Bar";
+    //primært skrevet af Yasmin
+
+}
+<head>
+
+</head>
+<body>
+    <script src="~/js/FetchBarAPI.js"></script>
+    <div class="text-center">
+        <h1 class="display-4">Bar</h1>
+        <p>Welcome to The Mistress bar</p>
+        <p>Here you can see the different drinks. Just searh a specific ingrediens</p>
+    </div>  
+    <label>What ingrideient would like in your drink?</label>
+    <input type="text" id="userInput" name="ingrident"></input>
+
+    <button onclick="getAPI()">Get your drink</button>
+
+    <ul id="list"></ul>
+
+
+
+</body>
